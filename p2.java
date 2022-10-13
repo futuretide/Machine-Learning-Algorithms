@@ -42,6 +42,15 @@ October 2, 2022 2:31 AM
 						if (jump < s.length())
 							result = result + s.charAt(jump);
 						isJump = true;
-					}
-				}
-			}
+						 else {
+                                                        int jump = i - 1;
+                                                        while (jump < s.length()) {
+                                                         result = result + s.charAt(jump);
+                                                         int next = (numRows - 2) * 2 + 1;
+                                                         jump = jump + next + 1; // nextelement
+                                                         }
+                                                        }
+                                                       }
+
+                                                      return result;
+                                                       }
