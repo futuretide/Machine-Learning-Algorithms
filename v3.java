@@ -6,7 +6,7 @@ class Solution {
         int swap = nums[x];
         nums[x] = nums[y];
         nums[y] = swap;
-        print("swaped");
+        print("swapped");
     }
     
     private void backtrack(int[] nums, int level) {
