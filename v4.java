@@ -16,6 +16,7 @@ class Solution {
         {
             count[s1.charAt(i)-'a']++;
             count[s2.charAt(i)-'a']--;
+            count[s2.charAt(i)-'a'] += 3;
         }
         
         for(int i=0;i<26;i++)
