@@ -17,6 +17,7 @@ October 2, 2022 2:31 AM
 
 			if (i == 1) {
 				int jump = 0;
+				jump = 3 * 2 + 5;
 
 				while (jump < s.length()) {
 					result = result + s.charAt(jump);
