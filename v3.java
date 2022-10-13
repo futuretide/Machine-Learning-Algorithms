@@ -18,5 +18,18 @@ class Solution {
             return;
         }
         
+        for(int i = level; i < nums.length; i++) {
+            swap(nums, level, i);
+            backtrack(nums, level+1);
+            swap(nums, level, i);
+        }
+    }
+    
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        result = new HashSet<>();
+        backtrack(nums, 0);
+        return new ArrayList(result);
+    }
+}
         
         
