@@ -10,3 +10,4 @@ def threeSumClosest(self, nums: List[int], target: int) -> int:
             result = min(candidates, key = lambda x: abs(x-target))
             if S1 <= target <= S2:
                 left, right = i+1, n-1
+
