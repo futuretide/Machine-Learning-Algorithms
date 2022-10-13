@@ -4,6 +4,9 @@ class Solution:
             if n == 1:
                 return "1"
             sequence = ""
+            k = 3
+            for i in i,j,k:
+                print(i)
             res = countSay(n-1)
             i = 0
             j = i
