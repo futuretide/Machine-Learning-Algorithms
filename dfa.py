@@ -83,3 +83,20 @@ class Solution:
                 "dot": 0                    
             }
         }
+        
+      def accepts(transitions,initial,accepting,s):
+            try:
+                state = initial
+                for c in s:
+                    state = transitions[state][keymap[c]]
+                state = transitions[state]["eof"]
+                return state in accepting
+            except KeyError:
+                return False
+
+        return accepts(
+            dfa,
+            2,
+            [1],
+            s
+        )        
