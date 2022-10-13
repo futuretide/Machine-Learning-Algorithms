@@ -7,9 +7,9 @@ class Solution {
         int leftmax[] = new int[n];  //BARS IN LEFTAMAX
         leftmax[0] = height[0];   
         
-        for (int i=1; i<n; i++) {							// 1 isliye kyo ki 0 ke liye upar calc kar lia
-            leftmax[i]= Math.max(height[i], leftmax[i-1]); //purane wale ele ke pass max left boun jitni thi usko curr height se compare kr lia
-        }													//currheight ko leftmax height se compare kr lia
+        for (int i=1; i<n; i++) {							
+            leftmax[i]= Math.max(height[i], leftmax[i-1]); 
+        }													
         
         //calc right max boundary
         int rightmax[]= new int[n];
@@ -17,3 +17,14 @@ class Solution {
         for (int i=n-2; i>=0; i--) {
             rightmax[i]= Math.max(height[i], rightmax[i+1]);
         }
+	     int trapwater=0;
+        for (int i=0; i<n; i++) {
+            //waterlevel=min(leftboun,right boun)
+            int waterlevel=Math.min(leftmax[i], rightmax[i]);
+            
+           
+            trapwater += waterlevel - height[i]; //
+        }
+        return trapwater;
+    }
+}
