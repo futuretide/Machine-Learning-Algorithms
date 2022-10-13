@@ -18,4 +18,43 @@ class Solution {
             count[s2.charAt(i)-'a']--;
         }
         
+        for(int i=0;i<26;i++)
+        {
+            if(count[i]!=0)
+                return false;
+        }
+        
+        String key = s1+" "+s2;
+        //Here we are checking if already data is present in the dictionary or not if yes,
+        //we can retrieve from here only
+        if(hashMap.containsKey(key))
+            return hashMap.get(key);
+        
+        for(int i=1;i<=s1.length()-1;i++)
+        {
+            int n = s1.length();
+            //These are the 2 primary conditions
+            //1) String from i to k can be compared with i to k from string 2 and
+            //String from k+1 to j can be compare to k+1 of other string
+            if(IsScramble(s1.substring(0,i), s2.substring(0,i), hashMap)
+              && IsScramble(s1.substring(i), s2.substring(i), hashMap))
+            {
+                hashMap.put(key, true);
+                return true;
+            }
+            ////1) String from i to k can be compared with n-i to n from string 2 and
+            //String from k+1 to j can be compare to the first half of the other string
+            if(IsScramble(s1.substring(0,i), s2.substring(n-i), hashMap)
+              && IsScramble(s1.substring(i), s2.substring(0,n-i), hashMap))
+            {
+                hashMap.put(key, true);
+                return true;
+            }
+            
+        }
+        hashMap.put(key, false);
+        return false;
+    }
+}
+        
        
